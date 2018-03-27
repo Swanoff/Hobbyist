@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 <html lang="en" dir="ltr">
 
   <head>
@@ -11,7 +10,7 @@
       #header
       {
         height: 80px;
-        background-color: white;
+        background-image: url("bd.png");
         border-style: hidden;
         margin: 0;
       }
@@ -30,13 +29,21 @@
         padding-right: 80px;
       }
 
+      body
+      {
+        border-style: hidden;
+        margin: 0px;
+
+        background-image: url("img/login_bg.png");
+      }
+
       #register
       {
         height:400px;
         width:300px;
         float: right;
         border-style: hidden;
-        margin: 80px 240px;
+        margin: 30px 240px;
         padding: 40px;
       }
 
@@ -51,7 +58,7 @@
       {
         border-style: hidden;
         margin-top: 25px;
-        margin-left: 70px;
+        margin-left: 50px;
       }
     </style>
   </head>
@@ -59,43 +66,41 @@
   <body>
 
     <div id="header">
+      <font color="white">
     <img id="logo" src="img/gradient.png" alt="Hobbyist" height="60" width="200">
       <div id="login" style="float:right">
         <p>Already a member?</p>
         <form style="float:right">
-          {% csrf_token %}
           <label for="mail">Email:</label>
           <input type="email" name="Email" placeholder="email id" required>
           <label for="pwd">Password:</label>
           <input type="password" name="Password" placeholder="password" required>
-          <input type="submit" name="" value="Sign In">
+          <input type="submit" class="btn btn-primary btn-sm" name="" value="Sign In">
         </form>
-      </div>
+      </div></font>
     </div>
 
     <hr>
 
     <div id="register">
       <p>New here? Sign up now!</p>
-      <form id=signup >
-          
+      <form id=signup>
         <div class="reg_fields">
-
           <label>Username:</label>
-          <input type="text" required>
+          <input type="text" class="form-control" required>
         </div>
         <br>
         <div class="reg_fields">
           <label>Email Id:</label>
-          <input type="email" required>
+          <input type="email" class="form-control" required>
         </div>
         <br>
         <div class="reg_fields">
           <label>Password:</label>
-          <input type="password" required>
+          <input type="password" class="form-control" required>
         </div>
         <br>
-        <input id="reg_submit"  type="submit" value="Sign Up">
+        <input id="reg_submit" class="btn btn-success btn-lg" type="submit" value="Sign Up">
       </form>
     </div>
 
