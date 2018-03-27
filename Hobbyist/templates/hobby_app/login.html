@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en" dir="ltr">
 
   <head>
     <meta charset="utf-8">
     <title>Welcome to Hobbyist</title>
-    <link rel="icon" href="assets/img/o_clock.png">
+    <link rel="icon" href="img/o_clock.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
       #header
@@ -58,10 +59,11 @@
   <body>
 
     <div id="header">
-    <img id="logo" src="assets/img/gradient.png" alt="Hobbyist" height="60" width="200">
+    <img id="logo" src="img/gradient.png" alt="Hobbyist" height="60" width="200">
       <div id="login" style="float:right">
         <p>Already a member?</p>
         <form style="float:right">
+          {% csrf_token %}
           <label for="mail">Email:</label>
           <input type="email" name="Email" placeholder="email id" required>
           <label for="pwd">Password:</label>
@@ -75,8 +77,10 @@
 
     <div id="register">
       <p>New here? Sign up now!</p>
-      <form id=signup>
+      <form id=signup >
+          
         <div class="reg_fields">
+
           <label>Username:</label>
           <input type="text" required>
         </div>
