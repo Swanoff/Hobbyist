@@ -2,4 +2,4 @@
 
 TODO LIST Application using Django FrameWork 
 
-Add todo items specifying reminders for a supporting productivity 
+Add todo items specifying reminders to support and improve  productivity of the users
