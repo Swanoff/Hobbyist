@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Hobbyist</title>
+    <link rel="icon" href="assets/img/o_clock.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      #header
+      {
+        height: 80px;
+        background-color: white;
+        border-style: hidden;
+        margin: 0;
+      }
+
+      #logo
+      {
+        border-style: hidden;
+        margin-top: 20px;
+        margin-left: 50px;
+      }
+
+      #login
+      {
+        border-style: hidden;
+        margin-top: 10px;
+        padding-right: 80px;
+      }
+
+      #register
+      {
+        height:400px;
+        width:300px;
+        float: right;
+        border-style: hidden;
+        margin: 80px 240px;
+        padding: 40px;
+      }
+
+      .reg_fields
+      {
+        border-style: hidden;
+        margin-left: 0px;
+        margin-top: 25px;
+      }
+
+      #reg_submit
+      {
+        border-style: hidden;
+        margin-top: 25px;
+        margin-left: 70px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="header">
+    <img id="logo" src="assets/img/gradient.png" alt="Hobbyist" height="60" width="200">
+      <div id="login" style="float:right">
+        <p>Already a member?</p>
+        <form style="float:right">
+          <label for="mail">Email:</label>
+          <input type="email" name="Email" placeholder="email id" required>
+          <label for="pwd">Password:</label>
+          <input type="password" name="Password" placeholder="password" required>
+          <input type="submit" name="" value="Sign In">
+        </form>
+      </div>
+    </div>
+
+    <hr>
+
+    <div id="register">
+      <p>New here? Sign up now!</p>
+      <form id=signup>
+        <div class="reg_fields">
+          <label>Username:</label>
+          <input type="text" required>
+        </div>
+        <br>
+        <div class="reg_fields">
+          <label>Email Id:</label>
+          <input type="email" required>
+        </div>
+        <br>
+        <div class="reg_fields">
+          <label>Password:</label>
+          <input type="password" required>
+        </div>
+        <br>
+        <input id="reg_submit"  type="submit" value="Sign Up">
+      </form>
+    </div>
+
+  </body>
+</html>
