@@ -6,11 +6,16 @@ from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+
 # Create your views here.
-def index(request):
-    formu = UserForm()
-    form = {'form':formu}
-    return render(request,'hobby_app/login.html',context=form)#Always use context=
+
+def index(request,data = 0):
+    if(data!=0):
+        form = data
+    else:
+        formu = UserForm()
+        form = {'form':formu}
+    return render(request,'hobby_app/login.html',form)
 
 def register(request):
     registered = False
@@ -33,6 +38,7 @@ def register(request):
 
 def user_login(request):
     if request.method=='POST':
+
         email = request.POST.get('Email')
         password = request.POST.get('Password')
         print(password)
@@ -45,10 +51,12 @@ def user_login(request):
             user = authenticate(username = u.username, password = password)
             print(user)
             if user:
-                login(request,user)
-                fo = UserForm()
-                form = {'form':fo}
-                return render(request,'hobby_app/login.html',context=form)
+                return HttpResponse("Hi There!")
+                if user.is_active:
+                    return HttpResponse("User active ")
+                else:
+                    return HttpResponse("User InActice")
+
             else:
                 return HttpResponse("Wrong pass")
         else:
@@ -58,12 +66,8 @@ def user_login(request):
 
     else:
         return render(request,'hobby_app/login.html',{})
-#View for logging out user
+
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect('/')
-#This is the front page. Also used for logging out.
-@login_required
-def front(request):
-    return render(request,'hobby_app/index.html',{})
+    return HttpResponseRedirect(reverse('index'))
