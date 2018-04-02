@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Hobbyist</title>
+    <link rel="icon" href="{% static 'img/o_clock.png' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      #header
+      {
+        height: 80px;
+        border-style: hidden;
+        margin: 0;
+      }
+
+      #logo
+      {
+        border-style: hidden;
+        margin-top: 20px;
+        margin-left: 50px;
+      }
+
+      #login
+      {
+        border-style: hidden;
+        margin-top: 10px;
+        padding-right: 80px;
+      }
+
+      body
+      {
+        zoom: '90%';
+        border-style: hidden;
+        margin: 0px;
+        /*background-image: url("{% static 'img/login_bg.png' %}");*/
+      }
+
+      #register
+      {
+        height:400px;
+        width:300px;
+        float: right;
+        border-style: hidden;
+        margin: 30px 180px;
+        padding: 40px;
+      }
+
+      .reg_fields
+      {
+        border-style: hidden;
+        margin-left: 0px;
+        margin-top: 25px;
+      }
+
+      #reg_submit
+      {
+        border-style: hidden;
+        margin-top: 25px;
+        margin-left: 50px;
+      }
+
+      .zoom
+      {
+        zoom: 90%;
+      }
+    </style>
+  </head>
+
+  <body class="zoom">
+
+    <div id="header">
+      <font color="black">
+    <img id="logo" src="{% static 'img/gradient.png' %}" alt="Hobbyist" height="60" width="200">
+    {% if user.is_authenticated %}
+<!-- This is for checking if a user is Already logged in -->
+      <p>
+        Works.
+      </p>
+      {% else %}
+    <form style="float:right" method="post" action="{% url 'hobby_app:login'%}">
+      <div id="login" style="float:right">
+        <p>Already a member?</p>
+
+        <label for="Email">Email:</label>
+        <input type="email" name="Email" placeholder="email id" required>
+
+          <label for="password">Password:</label>
+           <input type="password" name="Password" placeholder="password" required>
+
+
+           <input type="submit" class="btn btn-primary btn-sm" name="" value="Sign In">
+           {% csrf_token %}
+        </form>
+
+      </div></font>
+    </div>
+
+    <hr>
+    {% if registered %}
+    <p>
+       Thank You for registering.
+    </p>
+    {% else %}
+    <div id="register">
+      <p>New here? Sign up now!</p>
+      {{errors}}
+      <form id=signup method="post" action="{% url 'hobby_app:home'%}">
+        <div class="reg_fields">
+
+           <label for = "{{form.Username.id_for_label}}" >Username:</label>
+
+         <!--<input type="text" class="form-control" required /> -->
+
+          {{form.username}}
+
+
+        </div>
+       <br>
+        <div class="reg_fields">
+          <label for = "{{form.email.id_for_label}}">Email Id:</label>
+          <!-- <input type="email" class="form-control" required> -->
+          <!-- {{form.email.errors}} -->
+           {{form.email}}
+
+        </div>
+        <br>
+        <div class="reg_fields">
+          <!-- <input type="password" class="form-control" required> -->
+          <label for = "{{form.password.id_for_label}}">Password:</label>
+          <!-- {{form.password.errors}} -->
+           {{form.password}}
+
+        </div>
+        <br>
+        <input id="reg_submit" class="btn btn-success btn-lg" type="submit" value="Sign Up">
+        {% csrf_token %}
+      </form>
+
+    </div>
+      {% endif %}
+    {% endif %}
+  </body>
+</html>
