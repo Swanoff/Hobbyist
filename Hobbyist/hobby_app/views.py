@@ -7,13 +7,10 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 # Create your views here.
-def index(request,data = 0):
-    if(data!=0):
-        form = data
-    else:
-        formu = UserForm()
-        form = {'form':formu}
-    return render(request,'hobby_app/login.html',form)
+def index(request):
+    formu = UserForm()
+    form = {'form':formu}
+    return render(request,'hobby_app/login.html',context=form)#Always use context=
 
 def register(request):
     registered = False
@@ -36,24 +33,6 @@ def register(request):
 
 def user_login(request):
     if request.method=='POST':
-
-
-        # email = request.POST.get('email')
-        # password = request.POST.get('password')
-        #
-        # user = authenticate(email=email,password=password)
-        #
-        # if user:
-        #     if user.is_active:
-        #         login(request,user)
-        #         print("Successfully Logged in")
-        #         return HttpResponseRedirect(reverse('index'))
-        #     else:
-        #         return HttpResponse('account in Inactive after login')
-        #
-        # else:
-        #     print("Error in login ")
-        #     return HttpResponse('invalid login details')
         email = request.POST.get('Email')
         password = request.POST.get('Password')
         print(password)
@@ -66,7 +45,10 @@ def user_login(request):
             user = authenticate(username = u.username, password = password)
             print(user)
             if user:
-                return HttpResponse("Hi There!")
+                login(request,user)
+                fo = UserForm()
+                form = {'form':fo}
+                return render(request,'hobby_app/login.html',context=form)
             else:
                 return HttpResponse("Wrong pass")
         else:
@@ -76,8 +58,12 @@ def user_login(request):
 
     else:
         return render(request,'hobby_app/login.html',{})
-
+#View for logging out user
 @login_required
 def user_logout(request):
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect('/')
+#This is the front page. Also used for logging out.
+@login_required
+def front(request):
+    return render(request,'hobby_app/index.html',{})

@@ -73,13 +73,19 @@
     <div id="header">
       <font color="black">
     <img id="logo" src="{% static 'img/gradient.png' %}" alt="Hobbyist" height="60" width="200">
+    {% if user.is_authenticated %}
+<!-- This is for checking if a user is Already logged in -->
+      <p>
+        Works.
+      </p>
+      {% else %}
     <form style="float:right" method="post" action="{% url 'hobby_app:login'%}">
       <div id="login" style="float:right">
         <p>Already a member?</p>
-                      <!-- {{form1.email.errors}} -->
+
         <label for="Email">Email:</label>
         <input type="email" name="Email" placeholder="email id" required>
-           <!-- {{form1.password.errors}} -->
+
           <label for="password">Password:</label>
            <input type="password" name="Password" placeholder="password" required>
 
@@ -133,6 +139,7 @@
       </form>
 
     </div>
+      {% endif %}
     {% endif %}
   </body>
 </html>

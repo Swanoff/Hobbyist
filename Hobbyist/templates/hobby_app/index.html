@@ -19,6 +19,10 @@
         <li><span>X</span> Do motor coding</li>
       </ul>
     </div>
+    <form action="{% url 'hobby_app:logout' %}" method = "post">
+    <input type="submit" name="Logout" value="Logout"/>
+    {% csrf_token %}
+    </form>
 
     <script type="text/javascript" src="assets\js\todos.js">
 
