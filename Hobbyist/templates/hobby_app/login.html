@@ -80,6 +80,7 @@
       </p>
       {% else %}
     <form style="float:right" method="post" action="{% url 'hobby_app:login'%}">
+      {% csrf_token %}
       <div id="login" style="float:right">
         <p>Already a member?</p>
 
@@ -91,7 +92,7 @@
 
 
            <input type="submit" class="btn btn-primary btn-sm" name="" value="Sign In">
-           {% csrf_token %}
+
         </form>
 
       </div></font>
