@@ -12,6 +12,9 @@ def index(request):
     form = {'form':formu}
     return render(request,'hobby_app/login.html',context=form)#Always use context=
 
+def list_page(request):
+    return render(request,'hobby_app/p2.html')
+
 def register(request):
     registered = False
 
@@ -48,7 +51,7 @@ def user_login(request):
                 login(request,user)
                 fo = UserForm()
                 form = {'form':fo}
-                return render(request,'hobby_app/login.html',context=form)
+                return render(request,'hobby_app/p2.html',context=form)
             else:
                 return HttpResponse("Wrong pass")
         else:
@@ -58,6 +61,7 @@ def user_login(request):
 
     else:
         return render(request,'hobby_app/login.html',{})
+
 #View for logging out user
 @login_required
 def user_logout(request):
