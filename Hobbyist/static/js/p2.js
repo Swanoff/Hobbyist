@@ -16,10 +16,10 @@ $("input[type='text']").keypress(function(event){
         var listitem=$(this).val();
         var pre='<li><span> <i class="fa fa-trash-o" aria-hidden="true"></i> </span>';
         if(listitem!==""){
-            $("ul").append(pre+listitem+"</li>");
+            $(this).parent().children(':nth-child(3)').append(pre+listitem+"</li>");
         }
         $(this).val("");
-        
+
     }
 });
 

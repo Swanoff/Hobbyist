@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from hobby_app.models import ListContent,Title
 # Create your views here.
 def index(request):
     formu = UserForm()
@@ -51,7 +52,8 @@ def user_login(request):
                 login(request,user)
                 fo = UserForm()
                 form = {'form':fo}
-                return render(request,'hobby_app/p2.html',context=form)
+                request.session['uid'] = email
+                return HttpResponseRedirect('/hobby_app/')
             else:
                 return HttpResponse("Wrong pass")
         else:
@@ -71,3 +73,22 @@ def user_logout(request):
 @login_required
 def front(request):
     return render(request,'hobby_app/index.html',{})
+@login_required
+def home(request):
+    email = request.session.get('uid')
+    u = User.objects.get(email=email)
+    print(u)
+    title=[]
+    list=[]
+    title = Title.objects.filter(u_id=u).all()
+    objs=[]
+
+
+
+    name=[]
+    for i in title:
+        list = ListContent.objects.filter(lab_id = i).all()
+        objs.append(list)
+        name.append(i)
+    list = zip(name,objs)
+    return render(request,'hobby_app/p2.html',context={"list":list})

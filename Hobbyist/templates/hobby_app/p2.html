@@ -16,17 +16,21 @@
 
     </head>
     <body>
-      
+      {% for i,j in list %}
         <div id="container">
-                <h1>To-do List  <i id="plus" class="fa fa-pencil-square-o bar" aria-hidden="true"></i></h1>
-                <input type="text" placeholder="Add To-dos ">
+
+                <h1>{{i.title_name}}  <i id="plus" class="fa fa-pencil-square-o bar" aria-hidden="true"></i></h1>
+                <input type="text" placeholder="Add To-dos " class="place">
+
                 <ul>
-                    <li><span> <i class="fa fa-trash-o" aria-hidden="true"></i> </span>Learn Web Development</li>
-                    <li><span> <i class="fa fa-trash-o" aria-hidden="true"></i> </span>Have Fun</li>
+                  {% for k in j %}
+                    <li><span> <i class="fa fa-trash-o" aria-hidden="true"></i> </span>{{k.item_entry_name}}</li>
+                    <!-- <li><span> <i class="fa fa-trash-o" aria-hidden="true"></i> </span>Have Fun</li> -->
+                    {% endfor %}
                 </ul>
 
         </div>
-
+      {% endfor %}
     <script type="text/javascript" src="{% static 'js/p2.js' %}"></script>
     </body>
 
