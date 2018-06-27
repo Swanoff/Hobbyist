@@ -3,13 +3,11 @@
 TODO LIST Application using Django FrameWork 
 
 Add todo items specifying reminders to support and improve  productivity of the users
-
+<strong> Basic functionality is done. Need to resolve a few errors</strong>
 Work to be done:
 <ul>
-  <li>Adding and saving new lists and content.</li>
-  <li>Throws up blank page for users with no lists.</li>
-  
-<li>If you want to add content, add it through admin page.</li>
-
-<li>Need to resolve a few other front end stuff.</li>
-
+  <li> Including remainder date in UI </li>
+  <li> Sending list item checked status to server </li>
+  <li> Some UI stuff regarding registration and login </li>
+  <li> imroving injection security </li> 
+</ul>
