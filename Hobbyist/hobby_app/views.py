@@ -112,17 +112,16 @@ def save(request):
         t.save()
         flag= 0
     else:
-        t = Title.objects.filter(id=id)
-        l = ListContent.objects.filter(lab_id=t[0]).all()
+        t = Title.objects.get(id=id)
+        t.title_name = name
+        t.save()
+        l = ListContent.objects.filter(lab_id=t).all()
         if l is not None:
             for i in l:
                 i.delete() #removing all existing ListContent objects
     if list is not None:
         for i in list:
-            if(flag==1):
-                l = ListContent(lab_id=t[0],item_entry_name=i,remainder_date=datetime.now(),check_status=False)
-            else:
-                l = ListContent(lab_id=t,item_entry_name=i,remainder_date=datetime.now(),check_status=False)
+            l = ListContent(lab_id=t,item_entry_name=i,remainder_date=datetime.now(),check_status=False)
             l.save()
 
     return HttpResponse(0)
