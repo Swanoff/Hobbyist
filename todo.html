@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <script type="text/javascript" src="assets/js/lib/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="assets/css/todo.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style media="screen">
+      body{
+        background: #fc4a1a;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+    <div id="container-right">
+        <div id="title">
+          <input id="title_input" style="border:none; outline:none; line-height:50px; font-size:50px;" type="text" placeholder="Add a title">
+        </div>
+        <div id="contents">
+        <ul id="sortable">
+          <li id="list"><span><i class="fa fa-trash"></i></span> Potato chips</li>
+          <li id="list"><span><i class="fa fa-trash"></i></span> Nutella</li>
+        </ul>
+        <input id="add_list" type="text" style="border:none; outline:none;" placeholder="+ Add new todo">
+      </div>
+        <!-- jQuery is working only when i add this js file here. Sounds weird but i don't know why! :| -->
+        <script type="text/javascript" src="assets/js/todo.js"></script>
+    </div>
+  </div>
+  </body>
+</html>

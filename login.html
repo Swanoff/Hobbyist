@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1">
+    <title>Welcome to Hobbyist</title>
+    <link rel="icon" href="assets/img/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        #header {
+            height: 80px;
+            border-style: hidden;
+            margin: 0;
+        }
+
+        #logo {
+            border-style: hidden;
+            margin-top: 15px;
+            margin-left: 50px;
+        }
+
+        #login {
+            height: 100px;
+            width: 700px;
+            border-style: hidden;
+            font-size: small;
+            margin-top: 3px;
+            margin-right: 0px;
+            padding-left: 100px;
+        }
+
+        body {
+            border-style: hidden;
+            margin: 0px;
+            background-image: url("assets/img/login_bg.png");
+            background-size: cover;
+            background-size: 100%;
+        }
+
+        #register {
+            height: 30%;
+            width: 50%;
+            float: right;
+            font-size: small;
+            border-style: hidden;
+            display: inline-block;
+            margin: 30px 140px;
+            padding: 40px;
+        }
+
+        .reg_fields {
+            border-style: hidden;
+            margin-left: 0px;
+            margin-top: 25px;
+        }
+
+        #reg_submit {
+            border-style: hidden;
+            margin-top: 25px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header of the page which contains logo and login portal. -->
+    <div id="header">
+        <font color="white">
+            <img id="logo" src="assets/img/hobbyist.png" alt="Hobbyist" height="60%" width="10%">
+            <div id="login" style="float:right">
+                <p>Already a member?</p>
+                <form>
+                    <div style="border-style:hidden; margin-right:0%; padding-right:65%;">
+                        <label for="mail"><span>Email:</span>
+            <input type="email" name="Email" placeholder="email id" required></label>
+                    </div>
+
+                    <div style="border-style:hidden; margin-top:-5.5%; padding-left:35%;">
+                        <label for="pwd"><span>Password:</span>
+            <input type="password" name="Password" placeholder="password" required></label>
+                        <div>
+
+                            <div style="border-style:hidden; margin-top:-9%; padding-left:60%;">
+                                <input type="submit" class="btn btn-primary btn-sm" name="" value="Sign In">
+                            </div>
+                </form>
+                </div>
+        </font>
+        </div>
+
+        <!-- Horizontal ruler to seperate the login header and registration. -->
+        <!--<hr>-->
+
+
+        <!-- Registration portal. -->
+        <div id="register">
+            <p style="font-size: 15px">New here? Sign up now!</p>
+            <form id="signup">
+                <div class="reg_fields">
+                    <label>Username:</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <br>
+                <div class="reg_fields">
+                    <label>Email Id:</label>
+                    <input type="email" class="form-control" required>
+                </div>
+                <br>
+                <div class="reg_fields">
+                    <label>Password:</label>
+                    <input type="password" class="form-control" required>
+                </div>
+                <br>
+                <input id="reg_submit" class="btn btn-success btn-lg" type="submit" value="Sign Up">
+            </form>
+        </div>
+
+</body>
+
+</html>
